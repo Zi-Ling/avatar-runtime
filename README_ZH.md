@@ -1,3 +1,6 @@
+<p>
+<a href="README.md">English</a> | 中文
+</p>
 <h1>avatar-runtime</h1>
 
 <p>

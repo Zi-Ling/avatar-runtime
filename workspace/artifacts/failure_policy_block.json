@@ -1,6 +1,0 @@
-{
-  "run_id": "d9323f5e-df8f-4c8c-9c69-a6113b084de5",
-  "timestamp": 1765951093.6421993,
-  "error": "No module named 'avatar.runtime.runtime'",
-  "expected_result": "failure"
-}

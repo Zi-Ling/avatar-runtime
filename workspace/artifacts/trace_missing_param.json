@@ -1,0 +1,13 @@
+{
+  "run_id": "87997d0f-b218-47e2-81bd-aacbdce7f56b",
+  "timestamp": 1765952416.4763663,
+  "task_id": "demo_eff9f715",
+  "status": "FAILED",
+  "steps": [
+    {
+      "skill": "file.write",
+      "status": "FAILED",
+      "error": "Schema validation failed: 'relative_path' is required"
+    }
+  ]
+}

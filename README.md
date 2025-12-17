@@ -2,6 +2,12 @@ English | [中文](README_ZH.md)
 
 # avatar-runtime
 
+Most agent failures are not caused by bad plans,
+but by weak execution layers.
+
+This repository is an experiment in making execution boring,
+strict, and impossible to ignore.
+
 A minimal **execution runtime** for LLM-generated plans.
 
 This project focuses on **deterministic execution**,
@@ -16,6 +22,10 @@ this runtime refuses to guess, auto-fix, or silently retry.
 ## Why this exists
 
 In real-world agent systems, most failures do **not** come from the LLM itself.
+
+They come from execution layers that try to be “helpful”:
+guessing missing parameters, retrying silently,
+or allowing unsafe actions to proceed.
 
 They usually come from the execution layer:
 
@@ -131,6 +141,23 @@ not just logged.
     workspace/      sandboxed execution output (gitignored)
 
 The project is intentionally small and explicit.
+
+---
+
+## Who this is for
+
+This project may be useful if you are:
+- Building agent systems beyond simple tool-calling
+- Debugging silent failures or inconsistent agent behavior
+- Trying to make LLM-driven workflows observable and auditable
+
+---
+
+## Who this is not for
+
+This project is probably not useful if you want:
+- A turnkey agent framework
+- Prompt-based automation demos
 
 ---
 

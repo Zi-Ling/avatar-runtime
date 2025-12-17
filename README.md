@@ -1,0 +1,163 @@
+<h1>avatar-runtime</h1>
+
+<p>
+A minimal <strong>execution runtime</strong> for LLM-generated plans.
+</p>
+
+<p>
+This project focuses on <strong>deterministic execution</strong>,
+<strong>fail-fast validation</strong>, and <strong>policy-gated actions</strong> —
+not planning, memory, or intelligence.
+</p>
+
+<p>
+If a plan is incomplete, unsafe, or ambiguous,
+this runtime refuses to guess, auto-fix, or silently retry.
+</p>
+
+<hr/>
+
+<h2>Why this exists</h2>
+
+<p>
+In real-world agent systems, most failures do <strong>not</strong> come from the LLM itself.
+</p>
+
+<p>They usually come from the execution layer:</p>
+
+<ul>
+  <li>Missing or malformed parameters</li>
+  <li>Unsafe or over-privileged actions</li>
+  <li>Silent retries that hide real errors</li>
+  <li>Non-replayable, non-auditable runs</li>
+</ul>
+
+<p>
+<strong>avatar-runtime</strong> isolates and addresses these problems by enforcing
+<strong>strict execution semantics</strong> between a generated plan and the real world.
+</p>
+
+<hr/>
+
+<h2>What this project is</h2>
+
+<ul>
+  <li>A deterministic execution runtime</li>
+  <li>A fail-fast validator for structured plans</li>
+  <li>A policy gate for unsafe actions</li>
+  <li>A traceable, replayable execution loop</li>
+</ul>
+
+<h2>What this project is NOT</h2>
+
+<ul>
+  <li>An agent framework</li>
+  <li>A planner or task decomposer</li>
+  <li>A memory or context system</li>
+  <li>An automation toolkit</li>
+  <li>An LLM wrapper</li>
+</ul>
+
+<p>
+This project intentionally avoids intelligence and focuses purely on
+<strong>execution correctness</strong>.
+</p>
+
+<hr/>
+
+<h2>Quick start</h2>
+
+<p>Clone the repository and run the demo:</p>
+
+<pre><code>python run_demo.py</code></pre>
+
+<p>The demo runs three execution cases:</p>
+
+<ol>
+  <li>
+    <strong>Successful execution</strong><br/>
+    A simple file workflow that completes end-to-end.
+  </li>
+  <li>
+    <strong>Schema validation failure</strong><br/>
+    A step with missing required parameters fails immediately, before execution.
+  </li>
+  <li>
+    <strong>Policy denial</strong><br/>
+    An unsafe file operation is blocked by execution policy.
+  </li>
+</ol>
+
+<p>
+Each run produces <strong>replayable trace artifacts</strong> under:
+</p>
+
+<pre><code>./workspace/artifacts/</code></pre>
+
+<hr/>
+
+<h2>Demo behavior</h2>
+
+<ul>
+  <li>Step-by-step execution order</li>
+  <li>Validation failures before any side effects</li>
+  <li>Policy denials with clear reasons</li>
+  <li>Deterministic trace files for every run</li>
+</ul>
+
+<p>Example artifacts:</p>
+
+<pre><code>trace_success.json
+trace_missing_param.json
+trace_policy_block.json</code></pre>
+
+<p>
+These traces are intended to be inspected, replayed, or analyzed —
+not just logged.
+</p>
+
+<hr/>
+
+<h2>Design principles</h2>
+
+<ul>
+  <li><strong>Fail fast</strong> — invalid inputs are rejected immediately</li>
+  <li><strong>No silent recovery</strong> — no guessing or implicit retries</li>
+  <li><strong>Policy before execution</strong> — unsafe actions never run</li>
+  <li><strong>Deterministic traces</strong> — every run is auditable</li>
+</ul>
+
+<hr/>
+
+<h2>Project structure</h2>
+
+<pre><code>runtime/        execution engine, validation, policy, tracing
+skills/         minimal builtin skills (file only)
+examples/       demo plans and runner
+run_demo.py     top-level demo entrypoint
+workspace/      sandboxed execution output (gitignored)</code></pre>
+
+<p>The project is intentionally small and explicit.</p>
+
+<hr/>
+
+<h2>Status</h2>
+
+<p>
+This repository is an <strong>experimental extraction</strong> from a larger agent system.
+</p>
+
+<p>
+It exists to demonstrate execution-layer behavior in isolation,
+without planners, memory systems, or model-specific assumptions.
+</p>
+
+<p>
+The API is not stable and the scope is intentionally limited.
+</p>
+
+<hr/>
+
+<h2>License</h2>
+
+<p>MIT</p>

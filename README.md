@@ -99,9 +99,9 @@ In a full system, this layer would be called with:
 This demo omits those upstream components on purpose,
 to keep execution behavior observable, testable, and deterministic.
 </p>
-<p>
+
 For context on why this runtime exists, see [this write-up](docs/why_execution_breaks.md).
-</p>
+
 <hr/>
 
 <h2>Quick start</h2>

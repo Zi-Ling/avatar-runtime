@@ -27,7 +27,7 @@ They come from execution layers that try to be “helpful”:
 guessing missing parameters, retrying silently,
 or allowing unsafe actions to proceed.
 
-They usually come from the execution layer:
+Common failure modes include:
 
 - Missing or malformed parameters
 - Unsafe or over-privileged actions

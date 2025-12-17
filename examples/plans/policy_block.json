@@ -1,0 +1,22 @@
+{
+  "description": "失败案例2：策略阻断（尝试删除危险路径）",
+  "scenario": "尝试删除系统根目录（被策略拒绝）",
+  "expected_result": "failure",
+  "expected_error": "action not allowed by policy",
+  "steps": [
+    {
+      "id": "step_1",
+      "skill_name": "file.remove",
+      "params": {
+        "abs_path": "/"
+      },
+      "depends_on": []
+    }
+  ],
+  "validation": {
+    "expect_failure": true,
+    "expect_policy_block": true,
+    "error_contains": "policy"
+  }
+}
+

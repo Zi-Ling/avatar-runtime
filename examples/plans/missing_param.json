@@ -1,0 +1,21 @@
+{
+  "description": "失败案例1：缺少必需参数",
+  "scenario": "调用 file.write 但缺少 relative_path 参数",
+  "expected_result": "failure",
+  "expected_error": "missing required param: relative_path",
+  "steps": [
+    {
+      "id": "step_1",
+      "skill_name": "file.write",
+      "params": {
+        "content": "This should fail - no filename provided"
+      },
+      "depends_on": []
+    }
+  ],
+  "validation": {
+    "expect_failure": true,
+    "error_contains": "relative_path"
+  }
+}
+

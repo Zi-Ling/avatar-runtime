@@ -1,0 +1,40 @@
+{
+  "description": "成功案例：文件操作 + 文本拼接",
+  "scenario": "创建两个文本文件，然后将它们合并为一个文件",
+  "expected_result": "success",
+  "steps": [
+    {
+      "id": "step_1",
+      "skill_name": "file.write",
+      "params": {
+        "relative_path": "a.txt",
+        "content": "Hello from file A"
+      },
+      "depends_on": []
+    },
+    {
+      "id": "step_2",
+      "skill_name": "file.write",
+      "params": {
+        "relative_path": "b.txt",
+        "content": "Hello from file B"
+      },
+      "depends_on": []
+    },
+    {
+      "id": "step_3",
+      "skill_name": "file.concat",
+      "params": {
+        "sources": ["a.txt", "b.txt"],
+        "output": "result.txt",
+        "separator": "\n---\n"
+      },
+      "depends_on": ["step_1", "step_2"]
+    }
+  ],
+  "validation": {
+    "check_files_exist": ["a.txt", "b.txt", "result.txt"],
+    "check_result_content": "Hello from file A\n---\nHello from file B"
+  }
+}
+

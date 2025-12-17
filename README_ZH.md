@@ -1,10 +1,12 @@
 <p>
 <a href="README.md">English</a> | 中文
 </p>
+
 <h1>avatar-runtime</h1>
 
 <p>
-一个用于 <strong>LLM 生成执行计划</strong> 的<strong>最小执行运行时（execution runtime）</strong>。
+一个用于 <strong>执行 LLM 生成结构化计划</strong> 的
+<strong>最小执行运行时（execution runtime）</strong>。
 </p>
 
 <p>
@@ -68,6 +70,40 @@
 <strong>执行是否正确、是否安全、是否可验证</strong>。
 </p>
 
+<p>
+该运行时<strong>用于作为系统中的执行层被嵌入使用</strong>，
+而<strong>不是</strong>面向终端用户直接使用的工具。
+</p>
+
+<hr/>
+
+<h2>它在系统中的位置</h2>
+
+<p>
+本仓库刻意只展示一个更大 Agent 系统中的
+<strong>单一执行切片</strong>。
+</p>
+
+<p>
+该执行运行时通常位于系统中
+<strong>规划之后</strong>、<strong>真实副作用之前</strong>。
+</p>
+
+<p>
+在完整系统中，该执行层通常会接收：
+</p>
+
+<ul>
+  <li>由 LLM 或 Planner 生成的结构化执行计划</li>
+  <li>从上下文中解析出的明确参数</li>
+  <li>由宿主系统定义的严格执行策略</li>
+</ul>
+
+<p>
+本演示刻意省略这些上游组件，
+以保证执行行为<strong>可观察、可测试、且具备确定性</strong>。
+</p>
+
 <hr/>
 
 <h2>快速开始</h2>
@@ -117,7 +153,8 @@ trace_missing_param.json
 trace_policy_block.json</code></pre>
 
 <p>
-这些 trace 并非普通日志，而是用于<strong>检查、回放和分析</strong>的执行证据。
+这些 trace 并非普通日志，而是用于
+<strong>检查、回放和分析</strong>的执行证据。
 </p>
 
 <hr/>
@@ -148,12 +185,9 @@ workspace/      沙箱执行目录（不纳入版本控制）</code></pre>
 <h2>项目状态</h2>
 
 <p>
-本仓库是从一个更大型的 Agent 系统中<strong>抽离出的实验性执行内核</strong>。
-</p>
-
-<p>
-其目的在于<strong>独立展示执行层的行为</strong>，  
-不依赖任何规划器、记忆系统或模型实现。
+本仓库是从一个更大型的 Agent 系统中
+<strong>抽离出的实验性执行内核</strong>，
+用于独立展示执行层的行为。
 </p>
 
 <p>

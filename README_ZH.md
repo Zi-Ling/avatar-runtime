@@ -1,3 +1,6 @@
+<p>
+English | <a href="README_ZH.md">中文</a>
+</p>
 <h1>avatar-runtime</h1>
 
 <p>

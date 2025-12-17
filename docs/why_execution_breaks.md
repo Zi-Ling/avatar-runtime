@@ -64,10 +64,10 @@ Over time, I stopped adding safeguards and started removing behavior.
 
 I removed:
 
-- implicit retries  
-- auto-filled parameters  
-- “best effort” execution paths  
-- silent fallbacks  
+ - implicit retries  
+ - auto-filled parameters  
+ - "best effort" execution paths  
+ - silent fallbacks  
 
 Every removal reduced flexibility.
 
